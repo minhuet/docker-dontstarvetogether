@@ -29,6 +29,7 @@ ENV DESCRIPTION="Powered by DST Academy." \
 	SHARD_NAME=shard \
 	SHARD_BIND_IP="0.0.0.0" \
 	BACKUP_LOG_COUNT=0
+  
 
 # Add labels.
 LABEL academy.dst.config.update="true"
@@ -84,6 +85,13 @@ HEALTHCHECK --start-period=15m --interval=5m --timeout=1m --retries=3 CMD dst-se
 
 # Set up a volume for configuration files.
 VOLUME ["$CLUSTER_PATH"]
+
+# Set env for my own server
+ENV  TOKEN="pds-g^KU_J9MSPyOA^Upl5UYF76UpvQzNZf+ooKjMuY+yHL7eOFqp02JM5SFc=" \
+  NAME="JAIST" \
+  MAX_PLAYERS=8 \
+  DESCRIPTION="IS, MS, KS are welcome! Password: <what_S_in_IS_stands_for_?>" \
+  PASSWORD="science"
 
 # Set entrypoint and default command.
 ENTRYPOINT ["/docker-entrypoint.sh"]
